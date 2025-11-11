@@ -664,12 +664,5 @@ def view_records():
     </style>
     """
     return render_template_string(html)
-
-
-
-
-from pyngrok import ngrok
-port = 5000
-public_url = ngrok.connect(port)
-print(" Flask app running at:", public_url)
-app.run(port=port)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
